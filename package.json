@@ -27,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-static": "^3.0.1"
+		"@sveltejs/adapter-static": "^3.0.1",
+		"nanoid": "^5.0.7"
 	}
 }
