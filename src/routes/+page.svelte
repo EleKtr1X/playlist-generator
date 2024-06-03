@@ -1,2 +1,2 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Spotify Playlist Generator</h1>
+<a href='/generate'><button>Log in with Spotify</button></a>
