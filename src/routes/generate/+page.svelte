@@ -7,17 +7,20 @@
 
   /** @type {import('./$types').PageData} */
   // export let data;
-  let accessToken = '';
+  // let accessToken = '';
   onMount(async () => {
+    // console.log($page.url.searchParams.get('code'))
     const accessTokenRes = await fetch(`http://localhost:8080/api/spotify_access_token/${$page.url.searchParams.get('code')!}`)
-    accessToken = await accessTokenRes.text();
+    const accessToken = await accessTokenRes.text();
+    console.log(accessToken)
     const client = new SpotifyWebApi();
     client.setAccessToken(accessToken);
     client.getAvailableGenreSeeds().then(async res => {
       const gptKeyRes = await fetch(`http://localhost:8080/api/gpt_key`)
       const gptKey = await gptKeyRes.text();
+      console.log(res)
     
-      const openai = new OpenAI({ apiKey: gptKey });
+      const openai = new OpenAI({ apiKey: gptKey, dangerouslyAllowBrowser: true });
       const suggestions = await getSuggestions(openai, res.body.genres, 'chilling in room doing work', 4);
       console.log(suggestions)
       client.getRecommendations({
