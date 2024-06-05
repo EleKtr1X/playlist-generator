@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/playlist-generator/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="modulepreload" href="/playlist-generator/_app/immutable/entry/start.BmV10suN.js">
+		<link rel="modulepreload" href="/playlist-generator/_app/immutable/chunks/entry.DdYjQGlJ.js">
+		<link rel="modulepreload" href="/playlist-generator/_app/immutable/chunks/scheduler.BvLojk_z.js">
+		<link rel="modulepreload" href="/playlist-generator/_app/immutable/entry/app.XeK4JVHf.js">
+		<link rel="modulepreload" href="/playlist-generator/_app/immutable/chunks/index.CaLM_tdh.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_figqmy = {
+						base: "/playlist-generator",
+						assets: "/playlist-generator"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/playlist-generator/_app/immutable/entry/start.BmV10suN.js"),
+						import("/playlist-generator/_app/immutable/entry/app.XeK4JVHf.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
