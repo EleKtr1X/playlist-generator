@@ -2,11 +2,31 @@
   import SpotifyWebApi from 'spotify-web-api-node';
   import OpenAI from 'openai';
   import { getSuggestions } from '../../api/gpt.js';
+  import { beforeUpdate, onMount } from 'svelte';
+  import { page } from '$app/stores';
 
   /** @type {import('./$types').PageData} */
-  export let data;
-  const client = new SpotifyWebApi();
-  client.setAccessToken(data.accessToken);
+  // export let data;
+  let accessToken = '';
+  onMount(async () => {
+    const accessTokenRes = await fetch(`http://localhost:8080/api/spotify_access_token/${$page.url.searchParams.get('code')!}`)
+    accessToken = await accessTokenRes.text();
+    const client = new SpotifyWebApi();
+    client.setAccessToken(accessToken);
+    client.getAvailableGenreSeeds().then(async res => {
+      const gptKeyRes = await fetch(`http://localhost:8080/api/gpt_key`)
+      const gptKey = await gptKeyRes.text();
+    
+      const openai = new OpenAI({ apiKey: gptKey });
+      const suggestions = await getSuggestions(openai, res.body.genres, 'chilling in room doing work', 4);
+      console.log(suggestions)
+      client.getRecommendations({
+        seed_genres: suggestions,
+      }).then(res => {
+        console.log(res.body.tracks)
+      })
+    })
+  })
 
   // client.createPlaylist('Playlist', {
   //   description: 'This playlist was made using playlist-generator'
@@ -15,20 +35,7 @@
   // })
 
   
-  client.getAvailableGenreSeeds().then(async res => {
-    const gptKeyRes = await fetch(`http://localhost:8080/api/gpt_key`)
-    const gptKey = await gptKeyRes.text();
-  
-    const openai = new OpenAI({ apiKey: gptKey });
-    const suggestions = await getSuggestions(openai, res.body.genres, 'chilling in room doing work', 4);
-    console.log(suggestions)
-    client.getRecommendations({
-      seed_genres: suggestions,
-    }).then(res => {
-      console.log(res.body.tracks)
-    })
-  })
 </script>
 
 <h1>Generate</h1>
-<p>{client}</p>
+<!-- <p></p> -->
