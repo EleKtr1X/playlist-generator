@@ -4,3 +4,5 @@ export async function load({ params, url }) {
 
   return { accessToken };
 }
+
+export const prerender = false;

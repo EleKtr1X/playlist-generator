@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SpotifyWebApi from "spotify-web-api-node";
+  import SpotifyWebApi from 'spotify-web-api-node';
   import OpenAI from 'openai';
   import { getSuggestions } from '../../api/gpt.js';
 
