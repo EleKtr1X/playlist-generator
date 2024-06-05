@@ -14,11 +14,12 @@
     "outDir": "./dist/"
 	},
   "include": [
-    "./**/*"
+    "./**/*",
+    "./.svelte-kit/ambient.d.ts"
   ],
   "exclude": [
     "./node_modules/**/*",
-    "./dist/**/*"
+    "./build/**/*"
   ]
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	// except $lib which is handled by https://kit.svelte.dev/docs/configuration#files

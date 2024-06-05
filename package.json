@@ -27,7 +27,14 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@esbuild-plugins/node-globals-polyfill": "^0.2.3",
 		"@sveltejs/adapter-static": "^3.0.1",
-		"nanoid": "^5.0.7"
+		"@types/spotify-web-api-node": "^5.0.11",
+		"buffer": "^6.0.3",
+		"dotenv": "^16.4.5",
+		"nanoid": "^5.0.7",
+		"openai": "^4.47.3",
+		"spotify-web-api-node": "^5.0.2",
+		"undici": "^6.18.2"
 	}
 }

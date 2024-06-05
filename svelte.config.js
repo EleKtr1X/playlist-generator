@@ -14,7 +14,7 @@ const config = {
 		adapter: adapter(),
     paths: {
       base: '/playlist-generator',
-    }
+    },
 	}
 };
 
