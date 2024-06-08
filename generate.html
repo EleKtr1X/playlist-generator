@@ -5,20 +5,31 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="modulepreload" href="./_app/immutable/entry/start.kDuk4vK5.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.BGPz-zuj.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BvLojk_z.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.CZs4dyuq.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.BC9OweB7.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.B8fQE64w.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.Cbhnr_sF.js">
+		<link href="./_app/immutable/assets/0.CET_Zwml.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.DTe43ueA.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.NJFsjYc1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BeaK0CkN.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.DLJjHRjW.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.CvJBD2ZV.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.C9c_orab.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.P3oVV5Ew.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.B7JGHz2_.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">  <h1 data-svelte-h="svelte-1gznl7j">Generate</h1>  
+		<div style="display: contents">  <header class="main-header" data-svelte-h="svelte-1493ezq"><img src="logo.jpg" alt="Spotiflow Logo" class="logo"> <h1>Spotiflow</h1></header> <div class="container"><div class="left-half"><h2 class="inputs-header" data-svelte-h="svelte-w1qosq">Enter Playlist Details</h2> <div class="text-container"><label class="input-label" for="playlist-name" data-svelte-h="svelte-y58nff">Playlist Name <span style="font-weight: 300;">(Optional)</span> <span class="tooltip">?
+          <span class="tooltiptext">Enter a name for your playlist. If left empty, a relevant name will be provided.</span></span></label> <input type="text" id="playlist-name" class="text-box" placeholder="e.g., Motivation Mix" value=""></div> <div class="text-container"><label class="input-label" for="playlist-mood" data-svelte-h="svelte-18iyqsn">Playlist Mood
+        <span class="tooltip">?
+          <span class="tooltiptext">Enter the mood or vibe you want the playlist to reflect. This could be a specific event, feeling, aesthetic, or time of day. Examples include ‘Energetic Workout’, ‘Chill Tuesday Afternoon’, ‘Romantic Evening’, or ‘Cottagecore Picnic’.</span></span></label> <input type="text" id="playlist-mood" class="text-box" placeholder="e.g., Chill Vibes, Energetic Workout" value=""></div> <div class="slider-container"><label class="input-label slider-label" for="song-count" data-svelte-h="svelte-1cgxso9">Song Count
+        <span class="tooltip">?
+          <span class="tooltiptext">Select the number of songs you want in your playlist.</span></span></label> <div class="slider-wrapper"><input id="song-count" class="slider-range" type="range" min="10" max="100" value="55"> <span class="slider-value">55</span></div></div> <div class="slider-container"><label class="input-label slider-label" for="discovery-level" data-svelte-h="svelte-1gi9fe4">Discovery Level
+        <span class="tooltip">?
+          <span class="tooltiptext">Select the percentage of new songs in your playlist. A lower value means more songs from your library, and a higher value means more new discoveries.</span></span></label> <div class="slider-wrapper"><input id="discovery-level" class="slider-range" type="range" min="0.5" max="1" step="0.01" value="0.75"> <span class="slider-value">75%</span></div></div> <div class="slider-container"><label class="input-label slider-label" for="genre-variety" data-svelte-h="svelte-1jmhkma">Genre Variety
+        <span class="tooltip">?
+          <span class="tooltiptext">Choose how many different genres you want to include in your playlist.</span></span></label> <div class="slider-wrapper"><input id="genre-variety" class="slider-range" type="range" min="1" max="5" value="3"> <span class="slider-value">3</span></div></div></div> <div class="right-half"><img src="placeholder.jpg" alt="Placeholder" class="placeholder-image"> <div class="button" role="button" tabindex="0" data-svelte-h="svelte-1dx2o8s"><span>Generate</span> <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div></div></div></div>   
 			
 			<script>
 				{
-					__sveltekit_139rosy = {
+					__sveltekit_skpbg7 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/playlist-generator"
 					};
@@ -28,8 +39,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.kDuk4vK5.js"),
-						import("./_app/immutable/entry/app.CZs4dyuq.js")
+						import("./_app/immutable/entry/start.DTe43ueA.js"),
+						import("./_app/immutable/entry/app.DLJjHRjW.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
