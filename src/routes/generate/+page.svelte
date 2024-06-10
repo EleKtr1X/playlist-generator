@@ -48,7 +48,10 @@
     // add tracks to playlist
     const playlistNumNewSongs = Math.ceil(playlistNewPercent * playlistNumSongs)
     const newTracks = (await client.getRecommendations({ seed_genres: suggestions, limit: playlistNumNewSongs })).body.tracks;
-    const likedTracks = (await client.getMySavedTracks({ limit: (playlistNumSongs - playlistNumNewSongs) })).body.items;
+    let likedTracks: any[] = [];
+    if ((playlistNumSongs - playlistNumNewSongs) > 0) {
+      likedTracks = (await client.getMySavedTracks({ limit: (playlistNumSongs - playlistNumNewSongs) })).body.items;
+    }
     const tracks = newTracks.map(track => `spotify:track:${track.id}`).concat(likedTracks.map(track => `spotify:track:${track.track.id}`));
     await client.addTracksToPlaylist(playlist.id, shuffle(tracks));
 
