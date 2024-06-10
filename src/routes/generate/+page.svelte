@@ -80,7 +80,7 @@
           <span class="tooltiptext">Enter a name for your playlist. If left empty, a relevant name will be provided.</span>
         </span>
       </label>
-      <input type="text" id="playlist-name" class="text-box" placeholder="e.g., Motivation Mix" bind:value={playlistName}>
+      <input type="text" id="playlist-name" class="text-box" placeholder="e.g., Motivation Mix" bind:value={playlistName} disabled={generated}>
     </div>
     <div class="text-container">
       <label class="input-label" for="playlist-mood">
@@ -89,7 +89,7 @@
           <span class="tooltiptext">Enter the mood or vibe you want the playlist to reflect. This could be a specific event, feeling, aesthetic, or time of day. Examples include ‘Energetic Workout’, ‘Chill Tuesday Afternoon’, ‘Romantic Evening’, or ‘Cottagecore Picnic’.</span>
         </span>
       </label>
-      <input type="text" id="playlist-mood" class="text-box" placeholder="e.g., Chill Vibes, Energetic Workout" bind:value={mood}>
+      <input type="text" id="playlist-mood" class="text-box" placeholder="e.g., Chill Vibes, Energetic Workout" bind:value={mood} disabled={generated}>
     </div>
     <div class="slider-container">
       <label class="input-label slider-label" for="song-count">
@@ -99,7 +99,7 @@
         </span>
       </label>
       <div class="slider-wrapper">
-        <input id="song-count" class="slider-range" type="range" min="10" max="100" bind:value={playlistNumSongs}>
+        <input id="song-count" class="slider-range" type="range" min="10" max="100" bind:value={playlistNumSongs} disabled={generated}>
         <span class="slider-value">{playlistNumSongs}</span>
       </div>
     </div>
@@ -111,7 +111,7 @@
         </span>
       </label>
       <div class="slider-wrapper">
-        <input id="discovery-level" class="slider-range" type="range" bind:value={playlistNewPercent} min="0.5" max="1" step="0.01">
+        <input id="discovery-level" class="slider-range" type="range" bind:value={playlistNewPercent} min="0.5" max="1" step="0.01" disabled={generated}>
         <span class="slider-value">{Math.round(playlistNewPercent * 100)}%</span>
       </div>
     </div>
@@ -123,24 +123,24 @@
         </span>
       </label>
       <div class="slider-wrapper">
-        <input id="genre-variety" class="slider-range" type="range" bind:value={playlistNumGenres} min="1" max="5">
+        <input id="genre-variety" class="slider-range" type="range" bind:value={playlistNumGenres} min="1" max="5" disabled={generated}>
         <span class="slider-value">{playlistNumGenres}</span>
       </div>
     </div>
   </div>
   <div class="right-half">
     {#if !generated}
-      <img src="placeholder.jpg" alt="Placeholder" class="placeholder-image">
       <div class="button" on:click={generate} on:keydown={generate} role="button" tabindex="0">
         <span>Generate</span>
         <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div>
       </div>
     {:else}    
-        <iframe src={playlistLink} class="output-iframe" id="output-iframe" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="playlist"></iframe>
-        <a href="/playlist-generator"><div class="button" role="button" tabindex="0">
+      <a href="/playlist-generator">
+        <div class="button" role="button" tabindex="0">
           <span>Generate Again</span>
           <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div>
-        </div></a>
+        </div>
+      </a>
     {/if}
   </div>
 </div>
