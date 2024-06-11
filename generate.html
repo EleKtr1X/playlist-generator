@@ -6,14 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		<link href="./_app/immutable/assets/0.CET_Zwml.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.B5uoDpWp.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.BUfnpNeU.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.CtbWrGNo.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.CS8LzDvz.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.CGvHKYrD.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.Ck7OJe84.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.4Sazw7OI.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores.Datre884.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.TTVsKBI8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.qSNXjF8Q.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BeaK0CkN.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.CIMSWXhc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.B_z0WHMm.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.B7sA_iBh.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.yPWd1M_r.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.WJUUP-Fc.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">  <header class="main-header" data-svelte-h="svelte-1493ezq"><img src="logo.jpg" alt="Spotiflow Logo" class="logo"> <h1>Spotiflow</h1></header> <div class="container"><div class="left-half"><h2 class="inputs-header" data-svelte-h="svelte-w1qosq">Enter Playlist Details</h2> <div class="text-container"><label class="input-label" for="playlist-name" data-svelte-h="svelte-y58nff">Playlist Name <span style="font-weight: 300;">(Optional)</span> <span class="tooltip">?
@@ -25,11 +25,11 @@
         <span class="tooltip">?
           <span class="tooltiptext">Select the percentage of new songs in your playlist. A lower value means more songs from your library, and a higher value means more new discoveries.</span></span></label> <div class="slider-wrapper"><input id="discovery-level" class="slider-range" type="range" min="0.5" max="1" step="0.01"  value="0.75"> <span class="slider-value">75%</span></div></div> <div class="slider-container"><label class="input-label slider-label" for="genre-variety" data-svelte-h="svelte-1jmhkma">Genre Variety
         <span class="tooltip">?
-          <span class="tooltiptext">Choose how many different genres you want to include in your playlist.</span></span></label> <div class="slider-wrapper"><input id="genre-variety" class="slider-range" type="range" min="1" max="5"  value="3"> <span class="slider-value">3</span></div></div></div> <div class="right-half"><div class="button" role="button" tabindex="0" data-svelte-h="svelte-1dx2o8s"><span>Generate</span> <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div></div></div></div>   
+          <span class="tooltiptext">Choose how many different genres you want to include in your playlist.</span></span></label> <div class="slider-wrapper"><input id="genre-variety" class="slider-range" type="range" min="1" max="5"  value="3"> <span class="slider-value">3</span></div></div></div> <div class="right-half"><img src="start.jpg" alt="Click 'Generate' to create your playlist" class="placeholder-image"> <div class="button" role="button" tabindex="0" data-svelte-h="svelte-1dx2o8s"><span>Generate</span> <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div></div></div></div>   
 			
 			<script>
 				{
-					__sveltekit_12zhndl = {
+					__sveltekit_1nrwivx = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/playlist-generator"
 					};
@@ -39,8 +39,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.B5uoDpWp.js"),
-						import("./_app/immutable/entry/app.CS8LzDvz.js")
+						import("./_app/immutable/entry/start.TTVsKBI8.js"),
+						import("./_app/immutable/entry/app.CIMSWXhc.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
