@@ -8,12 +8,12 @@
   const client = new SpotifyWebApi();
   let openai: OpenAI;
   onMount(async () => {
-    const accessTokenRes = await fetch(`http://localhost:8080/api/spotify_access_token/${$page.url.searchParams.get('code')!}`)
+    const accessTokenRes = await fetch(`http://54.196.142.211:8080/api/spotify_access_token/${$page.url.searchParams.get('code')!}`)
     const accessToken = await accessTokenRes.text();
     console.log(accessToken)
     client.setAccessToken(accessToken);
   //   client.getAvailableGenreSeeds().then(async res => {
-    const gptKeyRes = await fetch(`http://localhost:8080/api/gpt_key`)
+    const gptKeyRes = await fetch(`http://54.196.142.211:8080/api/gpt_key`)
     const gptKey = await gptKeyRes.text();
     
     openai = new OpenAI({ apiKey: gptKey, dangerouslyAllowBrowser: true });
@@ -28,8 +28,10 @@
   let playlistLink = '';
 
   let generated = false;
+  let generating = false;
       
   async function generate() {
+    $: generating = true;
     // get all genres
     const genres = (await client.getAvailableGenreSeeds()).body.genres;
     // generate genre suggestions
@@ -55,7 +57,7 @@
     const tracks = newTracks.map(track => `spotify:track:${track.id}`).concat(likedTracks.map(track => `spotify:track:${track.track.id}`));
     await client.addTracksToPlaylist(playlist.id, shuffle(tracks));
 
-    playlistLink = `https://embed.spotify.com/playlist/${playlist.id}`;
+    playlistLink = `https://open.spotify.com/playlist/${playlist.id}`;
     generated = true;
   }
 
@@ -133,11 +135,20 @@
   </div>
   <div class="right-half">
     {#if !generated}
+      <img src="start.jpg" alt="Click 'Generate' to create your playlist" class="placeholder-image"/>
       <div class="button" on:click={generate} on:keydown={generate} role="button" tabindex="0">
         <span>Generate</span>
         <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div>
       </div>
-    {:else}    
+    {:else if generating}
+      <img src="start.jpg" alt="Click 'Generate' to create your playlist" class="placeholder-image"/>
+      <div class="button" on:click={generate} on:keydown={generate} role="button" tabindex="0">
+        <div id="loader" class="ld ld-ring ld-spin" style="display: none"></div>
+      </div>
+    {:else}
+      <a href={playlistLink} target="_blank">
+        <img src="end.jpg" alt="Click here to view your playlist" class="placeholder-image"/>
+      </a>
       <a href="/playlist-generator">
         <div class="button" role="button" tabindex="0">
           <span>Generate Again</span>
