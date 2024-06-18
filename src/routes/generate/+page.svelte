@@ -8,12 +8,12 @@
   const client = new SpotifyWebApi();
   let openai: OpenAI;
   onMount(async () => {
-    const accessTokenRes = await fetch(`https://54.196.142.211:8080/api/spotify_access_token/${$page.url.searchParams.get('code')!}`)
+    const accessTokenRes = await fetch(`http://54.196.142.211:8080/api/spotify_access_token/${$page.url.searchParams.get('code')!}`)
     const accessToken = await accessTokenRes.text();
     console.log(accessToken)
     client.setAccessToken(accessToken);
   //   client.getAvailableGenreSeeds().then(async res => {
-    const gptKeyRes = await fetch(`https://54.196.142.211:8080/api/gpt_key`)
+    const gptKeyRes = await fetch(`http://54.196.142.211:8080/api/gpt_key`)
     const gptKey = await gptKeyRes.text();
     
     openai = new OpenAI({ apiKey: gptKey, dangerouslyAllowBrowser: true });
